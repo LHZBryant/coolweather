@@ -67,6 +67,8 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
         currentDateText = (TextView) findViewById(R.id.current_date);
         switchCity = (Button) findViewById(R.id.switch_city);
         refreshWeather = (Button) findViewById(R.id.refresh_weather);
+        switchCity.setOnClickListener(this);
+        refreshWeather.setOnClickListener(this);
         String countyCode = getIntent().getStringExtra("county_code");
         if (!TextUtils.isEmpty(countyCode)) {// 有县级代号时就去查询天气
             publishText.setText("同步中...");
@@ -76,8 +78,6 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
         } else {// 没有县级代号时就直接显示本地天气
             showWeather();
         }
-        switchCity.setOnClickListener(this);
-        refreshWeather.setOnClickListener(this);
     }
 
 
